@@ -28,3 +28,15 @@ pull:
     - git fetch origin
     - git push secondary --tags
     - git push secondary --all
+
+build-simulation:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'  #run this job only on push event
+  tags:
+    -dinvm
+  stage: build
+  before_script:
+    - apt update -y
+    - apt install -y
+  script:
+    - make all
