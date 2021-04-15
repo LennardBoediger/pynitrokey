@@ -21,7 +21,7 @@ pull:
   script:
     - mkdir git-magic
     - cd git-magic
-    - git clone --mirror https://github.com/Nitrokey/pynitrokey.git
+    - git clone --mirror https://github.com/LennardBoediger/pynitrokey.git
     - cd pynitrokey.git
     - git remote add --mirror=fetch secondary https://git.dotplex.com/lennard.boediger/pynitrokey.git
     - git remote set-url secondary https://oauth2:$GITLAB_REPO_KEY@git.dotplex.com/lennard.boediger/pynitrokey.git
