@@ -33,7 +33,7 @@ build-simulation:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push"'  #run this job only on push event
   tags:
-    -dinvm
+    - dinvm
   stage: build
   before_script:
     - apt update -y
