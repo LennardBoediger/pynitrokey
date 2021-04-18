@@ -35,8 +35,5 @@ build-simulation:
   tags:
     - dinvm
   stage: build
-  before_script:
-    - apt update -y
-    - apt install -y
   script:
     - make all
