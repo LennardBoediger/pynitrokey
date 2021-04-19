@@ -36,4 +36,4 @@ build-simulation:
     - dinvm
   stage: build
   script:
-    - make all
+    - make CI
