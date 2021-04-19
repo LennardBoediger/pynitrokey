@@ -6,7 +6,6 @@ RUN apk add libnitrokey git wget build-base \
 				make autoconf automake ncurses freetype libtool \
 				gcc g++ wine gnutls
 
-
 RUN mkdir /build
 
 COPY build-wine-docker.sh /build/build-wine-docker.sh

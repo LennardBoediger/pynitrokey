@@ -85,7 +85,7 @@ update-venv: $(VENV)
 CI:
 	env FLIT_ROOT_INSTALL=1 $(MAKE) init VENV=$(VENV)
 	env FLIT_ROOT_INSTALL=1 $(MAKE) build-forced VENV=$(VENV)
-	$(MAKE) check || true
+#	$(MAKE) check || true
 	@echo
 	env LC_ALL=C.UTF-8 LANG=C.UTF-8 $(VENV)/bin/nitropy
 	@echo

@@ -4,7 +4,7 @@
 
 pushd wine-build
 
-sudo rm -rf out
+#sudo rm -rf out TODO replace with if out ->print user has to delete out
 docker build -t nk/wine-build .
 
 
