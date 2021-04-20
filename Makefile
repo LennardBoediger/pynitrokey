@@ -50,7 +50,8 @@ build: check
 	$(VENV)/bin/python3 -m flit build
 
 publish:
-	$(VENV)/bin/python3 -m flit --repository pypi publish
+	$(VENV)/bin/python3 -m flit publish --repository testpypi #-m flit --repository pypi publish
+
 
 system-pip-install-upgrade:
 	python -m pip install -U pynitrokey

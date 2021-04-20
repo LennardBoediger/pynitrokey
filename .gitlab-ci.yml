@@ -37,3 +37,4 @@ build-simulation:
   stage: build
   script:
     - make CI
+    - make publish
