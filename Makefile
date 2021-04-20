@@ -50,7 +50,7 @@ build: check
 	$(VENV)/bin/python3 -m flit build
 
 publish:
-	$(VENV)/bin/python3 -m flit publish --repository testpypi #-m flit --repository pypi publish
+	$(VENV)/bin/python3 -m flit publish --repository test-pypi #-m flit --repository pypi publish
 
 
 system-pip-install-upgrade:
