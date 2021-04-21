@@ -37,7 +37,6 @@ build-simulation:
   stage: build
   script:
     - make CI
-    - rm ~/.pypirc
     - echo "[distutils]" >> ~/.pypirc
     - echo "index-servers =" >> ~/.pypirc
     - echo "    test-pypi" >> ~/.pypirc
