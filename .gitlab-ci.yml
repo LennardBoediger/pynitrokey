@@ -37,13 +37,13 @@ build-simulation:
   stage: build
   script:
     - make CI
-    #- echo "[distutils]" >> ~/.pypirc
-    #- echo "index-servers =" >> ~/.pypirc
-    #- echo "    test-pypi" >> ~/.pypirc
-    #- echo "" >> ~/.pypirc
-    #- echo "[test-pypi]" >> ~/.pypirc
-    #- echo "repository = https://upload.pypi.org/legacy/" >> ~/.pypirc
-    #- echo "username = __token__" >> ~/.pypirc
-    #- echo "${PYPI_TOKEN}" >> ~/.pypirc
-    #- make publish #!!
-    #- rm ~/.pypirc
+    - echo "[distutils]" >> ~/.pypirc
+    - echo "index-servers =" >> ~/.pypirc
+    - echo "    test-pypi" >> ~/.pypirc
+    - echo "" >> ~/.pypirc
+    - echo "[test-pypi]" >> ~/.pypirc
+    - echo "repository = https://upload.pypi.org/legacy/" >> ~/.pypirc
+    - echo "username = __token__" >> ~/.pypirc
+    - echo "${PYPI_TOKEN}" >> ~/.pypirc
+    - make publish #!!
+    - rm ~/.pypirc
