@@ -48,6 +48,6 @@ build-simulation:
     - echo "${PYPI_TOKEN}" >> ~/.pypirc
     #- make publish #!!
     - rm ~/.pypirc
-    - artifacts:
-        paths:
-          - dist/*
+  artifacts:
+    paths:
+      - dist/*
