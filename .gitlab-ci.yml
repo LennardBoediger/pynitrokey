@@ -47,6 +47,7 @@ build-simulation:
     - echo "${PYPI_TOKEN}" >> ~/.pypirc
     #- make publish #!!
     - rm ~/.pypirc
+    - vboxmanage unregister new-ubutu-vm-runner-ZdHgWdtA-concurrent-0 --delete
   artifacts:
     paths:
       - dist/*
