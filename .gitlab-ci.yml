@@ -2,6 +2,7 @@ stages:
   - pull-github
   - build
   - deploy
+  - cleanup
 
 variables:
   GIT_STRATEGY: clone			#This seems to have no effect also set in webinterface
@@ -47,7 +48,15 @@ build-simulation:
     - echo "${PYPI_TOKEN}" >> ~/.pypirc
     #- make publish #!!
     - rm ~/.pypirc
-    - vboxmanage unregister new-ubutu-vm-runner-ZdHgWdtA-concurrent-0 --delete
   artifacts:
     paths:
       - dist/*
+
+
+
+delete-vm:
+  tags:
+    - shell
+  stage: cleanup
+  script:
+    - vboxmanage unregister new-ubutu-vm-runner-ZdHgWdtA-concurrent-0 --delete
