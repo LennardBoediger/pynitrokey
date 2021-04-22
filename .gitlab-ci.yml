@@ -38,21 +38,9 @@ build-simulation:
   stage: build
   script:
     - make CI
-    - echo "[distutils]" >> ~/.pypirc
-    - echo "index-servers =" >> ~/.pypirc
-    - echo "    test-pypi" >> ~/.pypirc
-    - echo "" >> ~/.pypirc
-    - echo "[test-pypi]" >> ~/.pypirc
-    - echo "repository = https://upload.pypi.org/legacy/" >> ~/.pypirc
-    - echo "username = __token__" >> ~/.pypirc
-    - echo "${PYPI_TOKEN}" >> ~/.pypirc
-    #- make publish #!!111
-    - rm ~/.pypirc
   artifacts:
     paths:
       - dist/*
-
-
 
 delete-vm:
   rules:
@@ -62,3 +50,23 @@ delete-vm:
   stage: cleanup
   script:
     - vboxmanage unregistervm new-ubutu-vm-runner-ZdHgWdtA-concurrent-0 --delete
+
+publish-pypi:
+  when: manual   #run this job only on manual user interaction in the webinterface
+  image: ubuntu:20.04
+  tags:
+    - uind
+  stage: pull-github
+  before_script:
+    - apt-get update -y
+    - apt-get install -y git
+  script:
+    - echo "[distutils]" >> ~/.pypirc
+    - echo "index-servers =" >> ~/.pypirc
+    - echo "    test-pypi" >> ~/.pypirc
+    - echo "" >> ~/.pypirc
+    - echo "[test-pypi]" >> ~/.pypirc
+    - echo "repository = https://upload.pypi.org/legacy/" >> ~/.pypirc
+    - echo "username = __token__" >> ~/.pypirc
+    - echo "${PYPI_TOKEN}" >> ~/.pypirc
+    - make publish
