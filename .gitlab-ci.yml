@@ -59,4 +59,4 @@ delete-vm:
     - shell
   stage: cleanup
   script:
-    - vboxmanage unregister new-ubutu-vm-runner-ZdHgWdtA-concurrent-0 --delete
+    - vboxmanage unregistervm new-ubutu-vm-runner-ZdHgWdtA-concurrent-0 --delete
