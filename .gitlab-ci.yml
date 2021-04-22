@@ -1,8 +1,8 @@
 stages:
   - pull-github
   - build
-  - deploy
   - cleanup
+  - deploy
 
 variables:
   GIT_STRATEGY: clone			#This seems to have no effect also set in webinterface
@@ -56,7 +56,7 @@ publish-pypi:
   image: ubuntu:20.04
   tags:
     - uind
-  stage: pull-github
+  stage: deploy
   before_script:
     - apt-get update -y
     - apt-get install -y git
