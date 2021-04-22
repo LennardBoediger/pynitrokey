@@ -63,7 +63,7 @@ publish-pypi:
     - apt-get update -y
     - apt-get install -y make
     - apt-get install -y python3
-    - apt-get install python3-venv
+    - apt-get install -y python3-venv
   script:
     - make update-venv
     - echo "[distutils]" >> ~/.pypirc
