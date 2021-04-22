@@ -74,4 +74,4 @@ publish-pypi:
     - echo "repository = https://upload.pypi.org/legacy/" >> ~/.pypirc
     - echo "username = __token__" >> ~/.pypirc
     - echo "${PYPI_TOKEN}" >> ~/.pypirc
-    - make publish
+    - make publish #!
