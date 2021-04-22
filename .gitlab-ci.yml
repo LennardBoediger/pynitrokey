@@ -64,7 +64,7 @@ publish-pypi:
     - apt-get install -y make
     - apt-get install -y python3
   script:
-    - update-venv
+    - make update-venv
     - echo "[distutils]" >> ~/.pypirc
     - echo "index-servers =" >> ~/.pypirc
     - echo "    test-pypi" >> ~/.pypirc
