@@ -46,7 +46,7 @@ build-simulation:
     - echo "repository = https://upload.pypi.org/legacy/" >> ~/.pypirc
     - echo "username = __token__" >> ~/.pypirc
     - echo "${PYPI_TOKEN}" >> ~/.pypirc
-    #- make publish #!!11
+    #- make publish #!!111
     - rm ~/.pypirc
   artifacts:
     paths:
