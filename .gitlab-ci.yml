@@ -30,7 +30,7 @@ pull:
     - git push secondary --tags
     - git push secondary --all
 
-build-simulation:
+build-for-pypi:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push"'  #run this job only on push event
   tags:
@@ -59,7 +59,7 @@ publish-pypi:
   stage: deploy
   before_script:
     - apt-get update -y
-    - apt-get install -y git
+    - apt-get install -y make
   script:
     - echo "[distutils]" >> ~/.pypirc
     - echo "index-servers =" >> ~/.pypirc
