@@ -46,7 +46,7 @@ build-simulation:
     - echo "repository = https://upload.pypi.org/legacy/" >> ~/.pypirc
     - echo "username = __token__" >> ~/.pypirc
     - echo "${PYPI_TOKEN}" >> ~/.pypirc
-    #- make publish #!!1
+    #- make publish #!!11
     - rm ~/.pypirc
   artifacts:
     paths:
@@ -55,6 +55,8 @@ build-simulation:
 
 
 delete-vm:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'  #run this job only on push event
   tags:
     - shell
   stage: cleanup
