@@ -3,6 +3,7 @@ stages:
   - build
   - cleanup
   - deploy
+  - deploy-cleanup
 
 variables:
   GIT_STRATEGY: clone			#This seems to have no effect also set in webinterface
@@ -53,17 +54,13 @@ delete-vm:
 
 publish-pypi:
   when: manual   #run this job only on manual user interaction in the webinterface
+  allow_failure: false
   only:
-    - pushes      #show this job only when tags are pushed
+    - pushes
   image: ubuntu:20.04
   tags:
-    - uind
+    - dinvm
   stage: deploy
-  before_script:
-    - apt-get update -y
-    - apt-get install -y make
-    - apt-get install -y python3
-    - apt-get install -y python3-venv
   script:
     - make update-venv
     - echo "[distutils]" >> ~/.pypirc
@@ -74,4 +71,13 @@ publish-pypi:
     - echo "repository = https://upload.pypi.org/legacy/" >> ~/.pypirc
     - echo "username = __token__" >> ~/.pypirc
     - echo "${PYPI_TOKEN}" >> ~/.pypirc
-    - make publish #!
+    - make publish
+
+delete-publish-vm:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'  #run this job only on push event
+  tags:
+    - shell
+  stage: deploy-cleanup
+  script:
+    - vboxmanage unregistervm new-ubutu-vm-runner-ZdHgWdtA-concurrent-0 --delete
